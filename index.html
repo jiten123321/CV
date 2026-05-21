@@ -52,7 +52,8 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;height:6
 .exp-item{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:40px 0;border-top:1px solid var(--border)}
 .exp-item:first-child{border-top:1px solid var(--border)}
 .exp-date{font-size:13px;color:var(--tl);padding-top:4px;font-weight:500}
-.exp-role{font-size:19px;font-weight:700;margin-bottom:4px;letter-spacing:-.2px}
+.exp-role{font-size:19px;font-weight:700;margin-bottom:4px;letter-spacing:-.2px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.exp-logo{width:30px;height:30px;flex-shrink:0;color:var(--text)}
 .exp-company{font-size:14px;color:var(--tm);margin-bottom:14px;font-weight:500}
 .exp-summary{font-size:14px;color:var(--ts);line-height:1.7;margin-bottom:18px}
 .exp-bullets{list-style:none;margin:0 0 18px;display:flex;flex-direction:column;gap:9px}
@@ -61,7 +62,7 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;height:6
 .exp-bullets li strong{font-weight:700;color:var(--text)}
 .exp-tags{display:flex;flex-wrap:wrap;gap:6px}
 .exp-tag{font-size:12px;font-weight:600;color:var(--ts);background:var(--soft);padding:5px 12px;border-radius:4px}
-.exp-current{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#fff;background:var(--text);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle}
+.exp-current{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#fff;background:var(--text);padding:2px 8px;border-radius:3px;vertical-align:middle}
 
 #events{border-bottom:1px solid var(--border)}
 .events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -165,6 +166,27 @@ footer p{font-size:13px;color:var(--tl)}
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo-bnb" viewBox="0 0 32 32" fill="currentColor">
+      <path d="M16 1l3 3-3 3-3-3zM4 13l3 3-3 3-3-3zM28 13l3 3-3 3-3-3zM16 25l3 3-3 3-3-3zM16 10l6 6-6 6-6-6z"/>
+    </symbol>
+    <symbol id="logo-near" viewBox="0 0 32 32" fill="currentColor">
+      <path d="M5 4a2 2 0 014 0v19l13-19a2 2 0 013.5 1V28a2 2 0 11-4 0V9L8.5 28A2 2 0 015 27V4z"/>
+    </symbol>
+    <symbol id="logo-palmswap" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 11h17l-4-4M26 21H9l4 4"/>
+    </symbol>
+    <symbol id="logo-bridge" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+      <path d="M3 17C7 8 25 8 29 17"/>
+      <path d="M6 14v12M11 11v15M16 10v16M21 11v15M26 14v12"/>
+    </symbol>
+    <symbol id="logo-mina" viewBox="0 0 32 32" fill="currentColor">
+      <path d="M5 4h4l7 14 7-14h4v24h-3V9l-6 12h-4L8 9v19H5z"/>
+    </symbol>
+  </defs>
+</svg>
+
 <nav id="nb">
   <div class="wrap">
     <a href="#" class="nav-name">Jitendra Naik</a>
@@ -223,7 +245,7 @@ footer p{font-size:13px;color:var(--tl)}
       <div class="exp-item r">
         <div class="exp-date">Mar 2025 - Present</div>
         <div>
-          <div class="exp-role">Marketing &amp; Community Manager<span class="exp-current">Current</span></div>
+          <div class="exp-role"><svg class="exp-logo"><use href="#logo-bnb"/></svg><span>Marketing &amp; Community Manager</span><span class="exp-current">Current</span></div>
           <div class="exp-company">BNB Chain &middot; World's most-used smart-contract chain</div>
           <p class="exp-summary">Owning end-to-end community growth for BNB Chain, covering strategy, KOLs, IRL events, ambassadors, and ecosystem development across global regions.</p>
           <ul class="exp-bullets">
@@ -242,7 +264,7 @@ footer p{font-size:13px;color:var(--tl)}
       <div class="exp-item r">
         <div class="exp-date">Feb 2023 - Mar 2025</div>
         <div>
-          <div class="exp-role">Head of Community &amp; Growth</div>
+          <div class="exp-role"><svg class="exp-logo"><use href="#logo-palmswap"/></svg><span>Head of Community &amp; Growth</span></div>
           <div class="exp-company">Palmswap &middot; Acquired by Foxify.trade</div>
           <p class="exp-summary">Led community, growth, and KOL strategy at a leading perpetuals DEX, scaling from early traction to acquisition.</p>
           <ul class="exp-bullets">
@@ -261,7 +283,7 @@ footer p{font-size:13px;color:var(--tl)}
       <div class="exp-item r">
         <div class="exp-date">Oct 2022 - Feb 2023</div>
         <div>
-          <div class="exp-role">Head of Community &amp; Growth</div>
+          <div class="exp-role"><svg class="exp-logo"><use href="#logo-bridge"/></svg><span>Head of Community &amp; Growth</span></div>
           <div class="exp-company">Bridge Network &middot; Cross-chain bridge protocol</div>
           <p class="exp-summary">Built community from near-zero during a difficult market (post-FTX), driving explosive growth via airdrops, incentives, and KOL collaborations.</p>
           <ul class="exp-bullets">
@@ -278,7 +300,7 @@ footer p{font-size:13px;color:var(--tl)}
       <div class="exp-item r">
         <div class="exp-date">Jan 2020 - Oct 2022</div>
         <div>
-          <div class="exp-role">On-Chain Community Operations Lead</div>
+          <div class="exp-role"><svg class="exp-logo"><use href="#logo-near"/></svg><span>On-Chain Community Operations Lead</span></div>
           <div class="exp-company">NEAR Foundation &middot; Layer-1 blockchain</div>
           <p class="exp-summary">Acted as the operational backbone of NEAR's global community as liaison to 130+ Guilds, builder of moderation systems, and architect of education campaigns that drove millions of wallet creations.</p>
           <ul class="exp-bullets">
@@ -299,7 +321,7 @@ footer p{font-size:13px;color:var(--tl)}
       <div class="exp-item r">
         <div class="exp-date">Feb 2019 - Jan 2020</div>
         <div>
-          <div class="exp-role">Regional Community Manager</div>
+          <div class="exp-role"><svg class="exp-logo"><use href="#logo-mina"/></svg><span>Regional Community Manager</span></div>
           <div class="exp-company">Mina Foundation &middot; Lightweight L1 protocol</div>
           <p class="exp-summary">Built MINA Protocol's regional community footprint through KOL partnerships, university programs, and the MINA Genesis ecosystem launch.</p>
           <ul class="exp-bullets">
