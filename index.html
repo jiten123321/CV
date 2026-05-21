@@ -76,12 +76,11 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;height:6
 
 #gallery{border-bottom:1px solid var(--border)}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
-.g-item{background:var(--soft);border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;transition:opacity .25s}
+.g-item{background:var(--soft);border-radius:8px;position:relative;cursor:pointer;transition:opacity .25s;overflow:hidden}
 .g-item:hover{opacity:.85}
 .g-item:nth-child(1){grid-column:span 2;grid-row:span 2}
-.g-icon{font-size:32px;opacity:.1}
-.g-text{position:absolute;bottom:12px;left:12px;font-size:12px;font-weight:600;color:var(--ts);background:rgba(255,255,255,.85);padding:4px 12px;border-radius:4px}
-.gallery-hint{text-align:center;font-size:13px;color:var(--tl);margin-top:24px;font-style:italic}
+.g-item img{width:100%;height:100%;object-fit:cover;display:block}
+.g-text{position:absolute;bottom:12px;left:12px;font-size:12px;font-weight:600;color:var(--ts);background:rgba(255,255,255,.9);padding:4px 12px;border-radius:4px}
 
 #skills{border-bottom:1px solid var(--border)}
 .skills-list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -325,14 +324,13 @@ footer p{font-size:13px;color:var(--tl)}
   <div class="wrap">
     <div class="s-head"><div><p class="s-label">Moments</p><h2 class="s-title">Gallery</h2></div></div>
     <div class="gallery-grid">
-      <div class="g-item r"><div class="g-icon">&#128247;</div><div class="g-text">Blockchain Week</div></div>
-      <div class="g-item r"><div class="g-icon">&#128247;</div><div class="g-text">Hackathon</div></div>
-      <div class="g-item r"><div class="g-icon">&#128247;</div><div class="g-text">NEAR Community</div></div>
-      <div class="g-item r"><div class="g-icon">&#128247;</div><div class="g-text">Team</div></div>
-      <div class="g-item r"><div class="g-icon">&#128247;</div><div class="g-text">Developer Meetup</div></div>
-      <div class="g-item r"><div class="g-icon">&#128247;</div><div class="g-text">Networking</div></div>
+      <div class="g-item r"><img src="https://raw.githubusercontent.com/jiten123321/cv-pic/main/G7V-NAaXQAAf71s.jpeg" alt="Blockchain Week" loading="lazy"/><div class="g-text">Blockchain Week</div></div>
+      <div class="g-item r"><img src="https://raw.githubusercontent.com/jiten123321/cv-pic/main/G7f2wDLbsAAGO_Q.jpeg" alt="Hackathon" loading="lazy"/><div class="g-text">Hackathon</div></div>
+      <div class="g-item r"><img src="https://raw.githubusercontent.com/jiten123321/cv-pic/main/G71g5iBXIAEU5AN.jpeg" alt="BNB Meetup" loading="lazy"/><div class="g-text">BNB Meetup</div></div>
+      <div class="g-item r"><img src="https://raw.githubusercontent.com/jiten123321/cv-pic/main/G7XC19RWEAAsykv.jpeg" alt="Team" loading="lazy"/><div class="g-text">Team</div></div>
+      <div class="g-item r"><img src="https://raw.githubusercontent.com/jiten123321/cv-pic/main/G7-9agwaQAASvhN.jpeg" alt="Developer Meetup" loading="lazy"/><div class="g-text">Developer Meetup</div></div>
+      <div class="g-item r"><img src="https://raw.githubusercontent.com/jiten123321/cv-pic/main/G06oJ6dXMAAoQkC.jpg" alt="Networking Event" loading="lazy"/><div class="g-text">Networking Event</div></div>
     </div>
-    <p class="gallery-hint">Replace placeholders with your event photos</p>
   </div>
 </section>
 
