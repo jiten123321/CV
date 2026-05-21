@@ -30,9 +30,9 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;height:6
 .hero-label{font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--tl);margin-bottom:24px}
 .hero h1{font-family:var(--serif);font-size:clamp(40px,6vw,68px);font-weight:400;line-height:1.1;margin-bottom:28px;max-width:720px}
 .hero-desc{font-size:17px;color:var(--tm);max-width:520px;line-height:1.75;margin-bottom:48px}
-.hero-row{display:flex;gap:48px;padding-top:48px;border-top:1px solid var(--border)}
-.hero-stat span{display:block;font-family:var(--serif);font-size:32px}
-.hero-stat p{font-size:12px;color:var(--tl);text-transform:uppercase;letter-spacing:1.5px;font-weight:500;margin-top:4px}
+.hero-row{display:grid;grid-template-columns:repeat(4,1fr);gap:32px 40px;padding-top:48px;border-top:1px solid var(--border)}
+.hero-stat span{display:block;font-family:var(--serif);font-size:32px;line-height:1.1}
+.hero-stat p{font-size:11px;color:var(--tl);text-transform:uppercase;letter-spacing:1.4px;font-weight:500;margin-top:6px}
 
 .s-label{font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--tl);margin-bottom:8px}
 .s-title{font-family:var(--serif);font-size:clamp(28px,4vw,40px);font-weight:400;line-height:1.15}
@@ -96,13 +96,6 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;height:6
 .skill-item h3{font-size:15px;font-weight:700;margin-bottom:8px}
 .skill-item p{font-size:13px;color:var(--tm);line-height:1.6}
 
-#numbers{border-bottom:1px solid var(--border)}
-.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.num-card{text-align:center;padding:28px 14px;background:var(--white);border:1px solid var(--border);border-radius:8px;transition:all .25s}
-.num-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.05);transform:translateY(-2px)}
-.num-card h3{font-family:var(--serif);font-size:34px;margin-bottom:6px;line-height:1.1}
-.num-card p{font-size:11px;color:var(--tl);text-transform:uppercase;letter-spacing:1.4px;font-weight:500}
-
 #education{border-bottom:1px solid var(--border)}
 .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
 .edu-block h3{font-family:var(--serif);font-size:22px;margin-bottom:20px;font-weight:400}
@@ -131,14 +124,13 @@ footer p{font-size:13px;color:var(--tl)}
 @media(max-width:980px){
   .events-grid{grid-template-columns:repeat(2,1fr)}
   .skills-list{grid-template-columns:repeat(2,1fr)}
-  .numbers-grid{grid-template-columns:repeat(4,1fr)}
 }
 @media(max-width:860px){
   .nav-links,.nav-contact{display:none}
   .hamburger{display:block}
   nav.open .nav-links{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(250,250,249,.98);padding:20px 32px;gap:16px;border-bottom:1px solid var(--border)}
   .hero h1{font-size:36px}
-  .hero-row{gap:28px;flex-wrap:wrap}
+  .hero-row{grid-template-columns:repeat(2,1fr);gap:24px 32px}
   .about-grid{grid-template-columns:1fr;gap:32px}
   .about-photo{max-width:280px}
   .exp-item{grid-template-columns:1fr;gap:12px;padding:32px 0}
@@ -147,15 +139,13 @@ footer p{font-size:13px;color:var(--tl)}
   .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
   .g-item:nth-child(1){grid-column:span 2;grid-row:span 1}
   .skills-list{grid-template-columns:1fr}
-  .numbers-grid{grid-template-columns:repeat(2,1fr)}
   .edu-grid{grid-template-columns:1fr;gap:24px}
 }
 @media(max-width:500px){
-  .hero-row{gap:20px}
+  .hero-row{grid-template-columns:repeat(2,1fr);gap:20px 24px}
   .hero-stat span{font-size:24px}
   .gallery-grid{grid-template-columns:1fr}
   .g-item:nth-child(1){grid-column:span 1}
-  .numbers-grid{grid-template-columns:1fr}
   .about-meta{grid-template-columns:1fr}
 }
 </style>
@@ -184,10 +174,14 @@ footer p{font-size:13px;color:var(--tl)}
     <h1>Building communities that move ecosystems forward</h1>
     <p class="hero-desc">7+ years scaling blockchain ecosystems. Currently driving community growth at BNB Chain. Previously at NEAR Foundation, Palmswap, Bridge Network, and Mina Foundation.</p>
     <div class="hero-row">
-      <div class="hero-stat"><span>7+</span><p>Years in Web3</p></div>
       <div class="hero-stat"><span>5M+</span><p>Wallets Onboarded</p></div>
-      <div class="hero-stat"><span>150+</span><p>KOLs &amp; Influencers</p></div>
+      <div class="hero-stat"><span>700K+</span><p>Followers Grown</p></div>
       <div class="hero-stat"><span>15M+</span><p>Impressions via Influencers</p></div>
+      <div class="hero-stat"><span>$1M+</span><p>Liquidity Pool</p></div>
+      <div class="hero-stat"><span>40,000%</span><p>Palmswap Growth</p></div>
+      <div class="hero-stat"><span>62,000%</span><p>Bridge Network Growth</p></div>
+      <div class="hero-stat"><span>1,200+</span><p>Project Leads Onboarded</p></div>
+      <div class="hero-stat"><span>150+</span><p>KOLs &amp; Influencers</p></div>
     </div>
   </div></div>
 </section>
@@ -360,22 +354,6 @@ footer p{font-size:13px;color:var(--tl)}
       <div class="skill-item r"><h3>Bot &amp; Moderation Ops</h3><p>GuardianBot, Mee6, Combot, Rose, ModBot, SafeChatBot, AutoMod, and FilterBot for global 24/7 community moderation systems.</p></div>
       <div class="skill-item r"><h3>Quest &amp; Loyalty Platforms</h3><p>Zealy, Intract, Galxe, TaskON. Activation campaigns, POAPs, XP systems, and gamified retention loops.</p></div>
       <div class="skill-item r"><h3>Content &amp; Comms</h3><p>Copywriting, meme creation, technical articles, X/Twitter strategy, crisis comms, and multilingual community content.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="numbers">
-  <div class="wrap">
-    <div class="s-head"><div><p class="s-label">Impact</p><h2 class="s-title">By the numbers</h2></div></div>
-    <div class="numbers-grid">
-      <div class="num-card r"><h3>5M+</h3><p>Wallets Onboarded</p></div>
-      <div class="num-card r"><h3>700K+</h3><p>Followers Grown</p></div>
-      <div class="num-card r"><h3>15M+</h3><p>Impressions via Influencers</p></div>
-      <div class="num-card r"><h3>$1M+</h3><p>Liquidity Pool</p></div>
-      <div class="num-card r"><h3>40,000%</h3><p>Palmswap Growth</p></div>
-      <div class="num-card r"><h3>62,000%</h3><p>Bridge Network Growth</p></div>
-      <div class="num-card r"><h3>1,200+</h3><p>Project Leads Onboarded</p></div>
-      <div class="num-card r"><h3>150+</h3><p>KOLs &amp; Influencers</p></div>
     </div>
   </div>
 </section>
