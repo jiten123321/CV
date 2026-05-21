@@ -49,12 +49,19 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;height:6
 .about-meta-item span{font-size:15px;font-weight:500}
 
 #experience{border-bottom:1px solid var(--border)}
-.exp-item{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:36px 0;border-top:1px solid var(--border)}
-.exp-date{font-size:13px;color:var(--tl);padding-top:4px}
-.exp-role{font-size:18px;font-weight:700;margin-bottom:2px}
-.exp-company{font-size:14px;color:var(--tm);margin-bottom:14px}
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:40px 0;border-top:1px solid var(--border)}
+.exp-item:first-child{border-top:1px solid var(--border)}
+.exp-date{font-size:13px;color:var(--tl);padding-top:4px;font-weight:500}
+.exp-role{font-size:19px;font-weight:700;margin-bottom:4px;letter-spacing:-.2px}
+.exp-company{font-size:14px;color:var(--tm);margin-bottom:14px;font-weight:500}
+.exp-summary{font-size:14px;color:var(--ts);line-height:1.7;margin-bottom:18px}
+.exp-bullets{list-style:none;margin:0 0 18px;display:flex;flex-direction:column;gap:9px}
+.exp-bullets li{font-size:14px;color:var(--ts);line-height:1.65;padding-left:20px;position:relative}
+.exp-bullets li::before{content:"";position:absolute;left:0;top:11px;width:10px;height:1px;background:var(--text)}
+.exp-bullets li strong{font-weight:700;color:var(--text)}
 .exp-tags{display:flex;flex-wrap:wrap;gap:6px}
-.exp-tag{font-size:12px;font-weight:500;color:var(--ts);background:var(--soft);padding:5px 12px;border-radius:4px}
+.exp-tag{font-size:12px;font-weight:600;color:var(--ts);background:var(--soft);padding:5px 12px;border-radius:4px}
+.exp-current{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#fff;background:var(--text);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle}
 
 #events{border-bottom:1px solid var(--border)}
 .events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -85,10 +92,23 @@ nav .wrap{display:flex;justify-content:space-between;align-items:center;height:6
 .skill-item p{font-size:13px;color:var(--tm);line-height:1.6}
 
 #numbers{border-bottom:1px solid var(--border)}
-.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.num-card{text-align:center;padding:32px 16px;background:var(--white);border:1px solid var(--border);border-radius:8px}
-.num-card h3{font-family:var(--serif);font-size:36px;margin-bottom:6px}
-.num-card p{font-size:11px;color:var(--tl);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
+.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.num-card{text-align:center;padding:28px 14px;background:var(--white);border:1px solid var(--border);border-radius:8px;transition:all .25s}
+.num-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.05);transform:translateY(-2px)}
+.num-card h3{font-family:var(--serif);font-size:34px;margin-bottom:6px;line-height:1.1}
+.num-card p{font-size:11px;color:var(--tl);text-transform:uppercase;letter-spacing:1.4px;font-weight:500}
+
+#education{border-bottom:1px solid var(--border)}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.edu-block h3{font-family:var(--serif);font-size:22px;margin-bottom:20px;font-weight:400}
+.edu-item{padding:20px 0;border-top:1px solid var(--border)}
+.edu-item:first-of-type{border-top:none;padding-top:0}
+.edu-item h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.edu-item p{font-size:13px;color:var(--tm);margin-bottom:2px}
+.edu-item span{font-size:12px;color:var(--tl)}
+.cert-list{display:flex;flex-direction:column;gap:10px}
+.cert-list li{font-size:14px;color:var(--ts);padding:12px 16px;background:var(--white);border:1px solid var(--border);border-radius:6px;list-style:none;display:flex;align-items:center;gap:10px}
+.cert-list li::before{content:"";width:6px;height:6px;background:var(--text);border-radius:50%;flex-shrink:0}
 
 #contact{padding-bottom:48px}
 .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
@@ -110,6 +130,11 @@ footer p{font-size:13px;color:var(--tl)}
 .r{opacity:0;transform:translateY(20px);transition:all .6s cubic-bezier(.16,1,.3,1)}
 .r.v{opacity:1;transform:translateY(0)}
 
+@media(max-width:980px){
+  .events-grid{grid-template-columns:repeat(2,1fr)}
+  .skills-list{grid-template-columns:repeat(2,1fr)}
+  .numbers-grid{grid-template-columns:repeat(4,1fr)}
+}
 @media(max-width:860px){
   .nav-links,.nav-contact{display:none}
   .hamburger{display:block}
@@ -118,13 +143,15 @@ footer p{font-size:13px;color:var(--tl)}
   .hero-row{gap:28px;flex-wrap:wrap}
   .about-grid{grid-template-columns:1fr;gap:32px}
   .about-photo{max-width:280px}
-  .exp-item{grid-template-columns:1fr;gap:8px}
+  .exp-item{grid-template-columns:1fr;gap:12px;padding:32px 0}
+  .exp-date{padding-top:0}
   .events-grid{grid-template-columns:1fr}
   .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
   .g-item:nth-child(1){grid-column:span 2;grid-row:span 1}
   .skills-list{grid-template-columns:1fr}
-  .numbers-grid{grid-template-columns:1fr 1fr}
+  .numbers-grid{grid-template-columns:repeat(2,1fr)}
   .contact-layout{grid-template-columns:1fr;gap:40px}
+  .edu-grid{grid-template-columns:1fr;gap:24px}
 }
 @media(max-width:500px){
   .hero-row{gap:20px}
@@ -147,6 +174,7 @@ footer p{font-size:13px;color:var(--tl)}
       <li><a href="#events">Events</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
     </ul>
     <a href="#contact" class="nav-contact">Contact</a>
     <button class="hamburger" onclick="document.getElementById('nb').classList.toggle('open')"><span></span><span></span><span></span></button>
@@ -155,13 +183,13 @@ footer p{font-size:13px;color:var(--tl)}
 
 <section class="hero">
   <div class="wrap"><div class="hero-inner">
-    <p class="hero-label">Web3 Community & Growth</p>
+    <p class="hero-label">Web3 Community & Growth Manager</p>
     <h1>Building communities that move ecosystems forward</h1>
-    <p class="hero-desc">7+ years scaling blockchain ecosystems across BNB Chain, NEAR Protocol, Palmswap, Bridge Network, and Mina Foundation.</p>
+    <p class="hero-desc">7+ years scaling blockchain ecosystems — currently driving community growth at BNB Chain. Previously at NEAR Foundation, Palmswap, Bridge Network, and Mina Foundation.</p>
     <div class="hero-row">
-      <div class="hero-stat"><span>7+</span><p>Years</p></div>
+      <div class="hero-stat"><span>7+</span><p>Years in Web3</p></div>
+      <div class="hero-stat"><span>5M+</span><p>Wallets Onboarded</p></div>
       <div class="hero-stat"><span>150+</span><p>KOL Partners</p></div>
-      <div class="hero-stat"><span>100+</span><p>Events</p></div>
       <div class="hero-stat"><span>15M+</span><p>Impressions</p></div>
     </div>
   </div></div>
@@ -194,28 +222,95 @@ footer p{font-size:13px;color:var(--tl)}
     <div>
       <div class="exp-item r">
         <div class="exp-date">Mar 2025 — Present</div>
-        <div><div class="exp-role">Marketing & Community Manager</div><div class="exp-company">BNB Chain</div>
-        <div class="exp-tags"><span class="exp-tag">35%+ Engagement</span><span class="exp-tag">150+ KOLs</span><span class="exp-tag">15M+ Impressions</span><span class="exp-tag">5 Hackathons</span><span class="exp-tag">500+ Leads</span></div></div>
+        <div>
+          <div class="exp-role">Marketing &amp; Community Manager<span class="exp-current">Current</span></div>
+          <div class="exp-company">BNB Chain &middot; World's most-used smart-contract chain</div>
+          <p class="exp-summary">Owning end-to-end community growth for BNB Chain — strategy, KOLs, IRL events, ambassadors, and ecosystem development across global regions.</p>
+          <ul class="exp-bullets">
+            <li>Engineered a <strong>35%+ engagement lift</strong> across Twitter/X and Telegram via a monthly content calendar, regional engagement plans, and ecosystem campaigns.</li>
+            <li>Onboarded and managed <strong>150+ KOLs, developer creators, and ecosystem partners</strong>; creator-led campaigns generated <strong>15M+ cumulative impressions</strong> in a year.</li>
+            <li>Organized <strong>5 IRL hackathons + 1 founder onboarding + 1 ecosystem side event</strong> — onboarded <strong>450+ founders</strong> and engaged <strong>1,000+ senior developers</strong>.</li>
+            <li>Served as <strong>main POC for Binance Blockchain Week 2025</strong>, engaging <strong>2,500+ attendees</strong> and distributing 2,000+ branded merchandise items.</li>
+            <li>Sourced and onboarded <strong>500+ qualified Web3 project leads</strong> through targeted outreach, founder networking, and community activations.</li>
+            <li>Revamped the <strong>BNB Martians ambassador program</strong> — 51 ambassadors driving <strong>50K–100K monthly reach</strong> on X via coordinated campaigns.</li>
+            <li>Built a data-driven KPI dashboard tracking engagement, sentiment, growth, and campaign performance to sharpen strategic decisions.</li>
+            <li>Executed <strong>20+ AMAs, 20+ X Spaces, 20+ quizzes, and 30+ polls</strong> — each campaign reaching <strong>32K–300K users</strong> across BNB Chain Global and Developer accounts.</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">35%+ Engagement</span><span class="exp-tag">150+ KOLs</span><span class="exp-tag">15M+ Impressions</span><span class="exp-tag">5 Hackathons</span><span class="exp-tag">450+ Founders</span><span class="exp-tag">500+ Web3 Leads</span><span class="exp-tag">Binance Blockchain Week 2025</span></div>
+        </div>
       </div>
       <div class="exp-item r">
         <div class="exp-date">Feb 2023 — Mar 2025</div>
-        <div><div class="exp-role">Head of Community & Growth</div><div class="exp-company">Palmswap (acq. Foxify.trade)</div>
-        <div class="exp-tags"><span class="exp-tag">40,000% User Growth</span><span class="exp-tag">48 Events</span><span class="exp-tag">$1M+ Liquidity Pool</span><span class="exp-tag">8 DeFi Partnerships</span></div></div>
+        <div>
+          <div class="exp-role">Head of Community &amp; Growth</div>
+          <div class="exp-company">Palmswap &middot; Acquired by Foxify.trade</div>
+          <p class="exp-summary">Led community, growth, and KOL strategy at a leading perpetuals DEX — scaled from early traction to acquisition.</p>
+          <ul class="exp-bullets">
+            <li>Drove an extraordinary <strong>40,000% active-user surge</strong> over 1.6 years through 20+ influencer collaborations and creator-led campaigns.</li>
+            <li>Launched <strong>48 cross-collaboration events</strong> with industry influencers and trader communities, drawing <strong>2,000+ participants per event</strong>.</li>
+            <li>Closed <strong>8 strategic DeFi partnerships</strong> that lifted platform transactions by <strong>20,000+ within a quarter</strong>.</li>
+            <li>Designed and launched the <strong>Palmswap Liquidity Pool (PLP) program</strong>, achieving <strong>$1M+ USDT in liquidity</strong> via the KOL/influencer network.</li>
+            <li>Implemented an <strong>AI-driven chatbot</strong> that cut support response time by <strong>50%</strong> and boosted customer satisfaction.</li>
+            <li>Led crisis communications during a <strong>$1M+ cyber incident</strong> — restored customer confidence by 36% and reduced support tickets by 25%.</li>
+            <li>Ran targeted Zealy quests integrating <strong>2,500+ traders and stakers</strong>, increasing platform activity by 35%.</li>
+            <li>Localized brand impact through regional influencer partnerships, amplifying visibility and engagement by <strong>60%</strong> in target markets.</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">40,000% User Growth</span><span class="exp-tag">48 Events</span><span class="exp-tag">$1M+ Liquidity</span><span class="exp-tag">8 DeFi Partnerships</span><span class="exp-tag">AI Chatbot</span><span class="exp-tag">Crisis Comms</span></div>
+        </div>
       </div>
       <div class="exp-item r">
         <div class="exp-date">Oct 2022 — Feb 2023</div>
-        <div><div class="exp-role">Head of Community & Growth</div><div class="exp-company">Bridge Network</div>
-        <div class="exp-tags"><span class="exp-tag">62,000% Growth</span><span class="exp-tag">$500K Testnet Volume</span><span class="exp-tag">30+ IRL Events</span><span class="exp-tag">30+ Partnerships</span></div></div>
+        <div>
+          <div class="exp-role">Head of Community &amp; Growth</div>
+          <div class="exp-company">Bridge Network &middot; Cross-chain bridge protocol</div>
+          <p class="exp-summary">Built community from near-zero during a difficult market (post-FTX) — drove explosive growth via airdrops, incentives, and KOL collaborations.</p>
+          <ul class="exp-bullets">
+            <li>Spearheaded a <strong>62,000% community increase</strong> by orchestrating KOL collaborations, local Web3 partnerships, airdrops, and incentive campaigns.</li>
+            <li>Activated the community with campaigns and contests that generated <strong>$500K in transaction volume</strong> during the first month of testnet.</li>
+            <li>Managed <strong>20+ global community chapters</strong> and organized <strong>30+ IRL events</strong> with ambassadors, regional managers, and local bodies.</li>
+            <li>Secured <strong>30+ DeFi and L1 strategic partnerships</strong>, lifting project visibility and adoption by 20%.</li>
+            <li>Launched a comprehensive ambassador program with <strong>50+ influencers</strong>, increasing brand mentions by 25% across social platforms.</li>
+            <li>Deployed Zealy, Galxe, and Gleam campaigns that drove a <strong>45% increase in bridge transactions</strong>.</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">62,000% Growth</span><span class="exp-tag">$500K Testnet Volume</span><span class="exp-tag">30+ IRL Events</span><span class="exp-tag">30+ Partnerships</span><span class="exp-tag">50+ Ambassadors</span></div>
+        </div>
       </div>
       <div class="exp-item r">
         <div class="exp-date">Jan 2020 — Oct 2022</div>
-        <div><div class="exp-role">On-Chain Community Operations Lead</div><div class="exp-company">NEAR Foundation</div>
-        <div class="exp-tags"><span class="exp-tag">5M+ Wallets</span><span class="exp-tag">700K+ Followers</span><span class="exp-tag">130+ Guilds</span><span class="exp-tag">200+ Startups</span></div></div>
+        <div>
+          <div class="exp-role">On-Chain Community Operations Lead</div>
+          <div class="exp-company">NEAR Foundation &middot; Layer-1 blockchain</div>
+          <p class="exp-summary">Acted as the operational backbone of NEAR's global community — liaison to 130+ Guilds, builder of moderation systems, and architect of education campaigns that drove millions of wallet creations.</p>
+          <ul class="exp-bullets">
+            <li>Coordinated and supported <strong>130+ global Guilds</strong> — managed funds, brand tone, strategy, and escalations across regions.</li>
+            <li>Led the landmark <strong>"1000 Teacher Education Campaign"</strong>, driving <strong>5M+ NEAR wallet creations</strong> via local communities, KOLs, and PR networks.</li>
+            <li>Grew Twitter following past <strong>700,000</strong> by leading 130+ guild-driven initiatives — directly adding 200,000+ community members.</li>
+            <li>Authored <strong>200+ educational articles</strong> through ambassadors and community authors, driving a <strong>200% traffic surge</strong> and 25% developer growth.</li>
+            <li>Led NEAR accelerator programs across <strong>India, Japan, and Europe</strong> with LumosLAB — onboarded <strong>200+ startups</strong> and awarded 25 grants.</li>
+            <li>Onboarded <strong>2,000+ developers</strong> in a year through university collaborations, hackathons, and developer-focused events.</li>
+            <li>Raised <strong>$50,000 for Polygon's Crypto COVID-19 Relief Fund</strong> using NEAR DAO tools (AstroDAO, multisig wallets).</li>
+            <li>Deployed automated moderation bots across Telegram, Discord, and Reddit — cutting spam and phishing incidents by <strong>50%</strong>.</li>
+            <li>Standardized moderation with a detailed flowchart and playbook, improving response time by <strong>50%</strong> across community channels.</li>
+            <li>Led a team of 15 moderators, BD reps, and incubators; built Open Web Sandbox (OWS) program generating <strong>5,000+ ecosystem contributions</strong>.</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">5M+ Wallets</span><span class="exp-tag">700K+ Followers</span><span class="exp-tag">130+ Guilds</span><span class="exp-tag">200+ Startups</span><span class="exp-tag">200+ Articles</span><span class="exp-tag">$50K Raised</span><span class="exp-tag">5K+ Contributions</span></div>
+        </div>
       </div>
       <div class="exp-item r">
         <div class="exp-date">Feb 2019 — Jan 2020</div>
-        <div><div class="exp-role">Regional Community Manager</div><div class="exp-company">Mina Foundation</div>
-        <div class="exp-tags"><span class="exp-tag">60% Member Growth</span><span class="exp-tag">120% Engagement</span><span class="exp-tag">1,500+ Participants</span></div></div>
+        <div>
+          <div class="exp-role">Regional Community Manager</div>
+          <div class="exp-company">Mina Foundation &middot; Lightweight L1 protocol</div>
+          <p class="exp-summary">Built MINA Protocol's regional community footprint through KOL partnerships, university programs, and the MINA Genesis ecosystem launch.</p>
+          <ul class="exp-bullets">
+            <li>Achieved a <strong>60% increase in active community members</strong> within a year via targeted engagement and regional KOL collaborations.</li>
+            <li>Drove <strong>120% community engagement growth</strong> and a 39% rise in event participation through contests and educational webinars.</li>
+            <li>Expanded MINA's reach by <strong>20%</strong> and boosted Genesis Program brand awareness via developer community partnerships.</li>
+            <li>Structured webinars and IRL events with universities, attracting <strong>1,500+ participants</strong> to learn MINA fundamentals and node operation.</li>
+            <li>Lifted brand visibility by <strong>70%</strong> and social media engagement by 40% through cross-collaboration and KOL-led content.</li>
+          </ul>
+          <div class="exp-tags"><span class="exp-tag">60% Member Growth</span><span class="exp-tag">120% Engagement</span><span class="exp-tag">1,500+ Participants</span><span class="exp-tag">70% Brand Lift</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -223,11 +318,14 @@ footer p{font-size:13px;color:var(--tl)}
 
 <section id="events">
   <div class="wrap">
-    <div class="s-head"><div><p class="s-label">Highlights</p><h2 class="s-title">Key Events</h2></div></div>
+    <div class="s-head"><div><p class="s-label">Highlights</p><h2 class="s-title">Flagship initiatives</h2></div></div>
     <div class="events-grid">
-      <div class="event-card r"><div class="event-img"><div class="event-img-icon">&#127942;</div><div class="event-badge">Flagship</div></div><div class="event-body"><h3>Binance Blockchain Week 2025</h3><p>Main POC — 2,500+ attendees, 2,000+ merchandise distributed for BNB Chain.</p><div class="event-meta"><span>Dubai</span><span>2,500+ attendees</span></div></div></div>
-      <div class="event-card r"><div class="event-img"><div class="event-img-icon">&#128187;</div><div class="event-badge">Hackathon</div></div><div class="event-body"><h3>BNB Chain Hackathons</h3><p>5 IRL hackathons onboarding 450+ founders and 1,000+ developers.</p><div class="event-meta"><span>Multi-city</span><span>1,000+ devs</span></div></div></div>
-      <div class="event-card r"><div class="event-img"><div class="event-img-icon">&#127758;</div><div class="event-badge">Campaign</div></div><div class="event-body"><h3>NEAR 1000 Teacher Campaign</h3><p>Global education campaign resulting in 5M+ wallet creations.</p><div class="event-meta"><span>Global</span><span>5M+ wallets</span></div></div></div>
+      <div class="event-card r"><div class="event-img"><div class="event-img-icon">&#127942;</div><div class="event-badge">BNB Chain</div></div><div class="event-body"><h3>Binance Blockchain Week 2025</h3><p>Main POC representing BNB Chain at one of the ecosystem's largest community events — engaged attendees, ran activations, and distributed branded merchandise.</p><div class="event-meta"><span>2,500+ attendees</span><span>2,000+ merch</span></div></div></div>
+      <div class="event-card r"><div class="event-img"><div class="event-img-icon">&#128187;</div><div class="event-badge">BNB Chain</div></div><div class="event-body"><h3>BNB Chain IRL Hackathons</h3><p>Organized and executed 5 in-person hackathons plus founder onboarding and ecosystem side events across multiple regions.</p><div class="event-meta"><span>450+ founders</span><span>1,000+ devs</span></div></div></div>
+      <div class="event-card r"><div class="event-img"><div class="event-img-icon">&#128104;&#8205;&#127979;</div><div class="event-badge">NEAR</div></div><div class="event-body"><h3>1000 Teacher Education Campaign</h3><p>Landmark Web3 education campaign leveraging local communities, KOLs, and PR networks — one of NEAR's most successful onboarding initiatives.</p><div class="event-meta"><span>Global reach</span><span>5M+ wallets</span></div></div></div>
+      <div class="event-card r"><div class="event-img"><div class="event-img-icon">&#128640;</div><div class="event-badge">NEAR</div></div><div class="event-body"><h3>NEAR Accelerator (India / Japan / EU)</h3><p>Co-led regional accelerator programs in partnership with LumosLAB, onboarding founders and awarding ecosystem grants.</p><div class="event-meta"><span>200+ startups</span><span>25 grants</span></div></div></div>
+      <div class="event-card r"><div class="event-img"><div class="event-img-icon">&#128176;</div><div class="event-badge">Palmswap</div></div><div class="event-body"><h3>PLP Liquidity Program</h3><p>Designed and launched the Palmswap Liquidity Pool — engineered a KOL-driven activation that brought $1M+ USDT into the protocol.</p><div class="event-meta"><span>$1M+ TVL</span><span>KOL-led</span></div></div></div>
+      <div class="event-card r"><div class="event-img"><div class="event-img-icon">&#128081;</div><div class="event-badge">BNB Chain</div></div><div class="event-body"><h3>BNB Martians Ambassador Program</h3><p>Revamped the global volunteer ambassador program — reactivated 51 ambassadors across regions to power coordinated amplification on X.</p><div class="event-meta"><span>51 ambassadors</span><span>50K–100K/mo reach</span></div></div></div>
     </div>
   </div>
 </section>
@@ -251,12 +349,15 @@ footer p{font-size:13px;color:var(--tl)}
   <div class="wrap">
     <div class="s-head"><div><p class="s-label">Expertise</p><h2 class="s-title">What I do</h2></div></div>
     <div class="skills-list">
-      <div class="skill-item r"><h3>Community Growth</h3><p>Global strategy, activation campaigns, sentiment analysis, moderation systems, and engagement playbooks.</p></div>
-      <div class="skill-item r"><h3>KOL & Influencer Marketing</h3><p>150+ partnerships, ambassador programs, influencer-led campaigns, and localized brand strategies.</p></div>
-      <div class="skill-item r"><h3>Event Planning</h3><p>IRL hackathons, AMAs, X Spaces, cross-community activations, and global developer meetups.</p></div>
-      <div class="skill-item r"><h3>Data & Analytics</h3><p>KPI dashboards, engagement tracking, Power BI, Grafana, Google Analytics, and strategic reporting.</p></div>
-      <div class="skill-item r"><h3>AI & Automation</h3><p>N8N workflows, AI chatbots, automated moderation, Typefully, and community automation tools.</p></div>
-      <div class="skill-item r"><h3>Business Development</h3><p>DeFi partnerships, ecosystem sourcing, cross-community collaboration, and founder networking.</p></div>
+      <div class="skill-item r"><h3>Community Growth</h3><p>Global and local growth strategies, activation, culture-building, sentiment tracking, moderation playbooks, and conflict management flows.</p></div>
+      <div class="skill-item r"><h3>KOL &amp; Influencer Marketing</h3><p>150+ KOL partnerships, ambassador programs, creator-led campaigns, localized brand strategies, and cost-efficient negotiations.</p></div>
+      <div class="skill-item r"><h3>Event Planning &amp; Hosting</h3><p>IRL hackathons, meetups, online hackathons, TG AMAs, X Spaces, Discord events, and full SOP-driven growth programs.</p></div>
+      <div class="skill-item r"><h3>Data &amp; Analytics</h3><p>KPI dashboards in Power BI, Grafana, Google Data Studio &amp; Analytics; sentiment, engagement, and performance interpretation.</p></div>
+      <div class="skill-item r"><h3>AI &amp; Automation</h3><p>Claude Code, N8N workflows, AI chatbots cutting response time 50%, Typefully, Common Room, Modash, automated moderation bots.</p></div>
+      <div class="skill-item r"><h3>Business Development</h3><p>DeFi partnerships, ecosystem sourcing, cross-community collaboration, founder networking, and qualified lead generation.</p></div>
+      <div class="skill-item r"><h3>Bot &amp; Moderation Ops</h3><p>GuardianBot, Mee6, Combot, Rose, ModBot, SafeChatBot, AutoMod, FilterBot — global 24/7 community moderation systems.</p></div>
+      <div class="skill-item r"><h3>Quest &amp; Loyalty Platforms</h3><p>Zealy, Intract, Galxe, TaskON — activation campaigns, POAPs, XP systems, and gamified retention loops.</p></div>
+      <div class="skill-item r"><h3>Content &amp; Comms</h3><p>Copywriting, meme creation, technical articles, X/Twitter strategy, crisis comms, and multilingual community content.</p></div>
     </div>
   </div>
 </section>
@@ -265,10 +366,42 @@ footer p{font-size:13px;color:var(--tl)}
   <div class="wrap">
     <div class="s-head"><div><p class="s-label">Impact</p><h2 class="s-title">By the numbers</h2></div></div>
     <div class="numbers-grid">
-      <div class="num-card r"><h3>5M+</h3><p>Wallet Creations</p></div>
+      <div class="num-card r"><h3>5M+</h3><p>Wallets Onboarded</p></div>
       <div class="num-card r"><h3>700K+</h3><p>Followers Grown</p></div>
-      <div class="num-card r"><h3>200+</h3><p>Startups Onboarded</p></div>
+      <div class="num-card r"><h3>15M+</h3><p>Impressions</p></div>
       <div class="num-card r"><h3>$1M+</h3><p>Liquidity Pool</p></div>
+      <div class="num-card r"><h3>40,000%</h3><p>Palmswap Growth</p></div>
+      <div class="num-card r"><h3>62,000%</h3><p>Bridge Network Growth</p></div>
+      <div class="num-card r"><h3>200+</h3><p>Startups Onboarded</p></div>
+      <div class="num-card r"><h3>150+</h3><p>KOL Partners</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="s-head"><div><p class="s-label">Background</p><h2 class="s-title">Education &amp; certifications</h2></div></div>
+    <div class="edu-grid">
+      <div class="edu-block">
+        <h3>Education</h3>
+        <div class="edu-item">
+          <h4>Executive Program in Marketing &amp; Analytics</h4>
+          <p>Indian Institute of Management, Rohtak</p>
+        </div>
+        <div class="edu-item">
+          <h4>B.Tech</h4>
+          <p>Krupajal Engineering College, Bhubaneswar</p>
+          <span>August 2013 — February 2017</span>
+        </div>
+      </div>
+      <div class="edu-block">
+        <h3>Certifications</h3>
+        <ul class="cert-list">
+          <li>The Community MBA</li>
+          <li>Avalanche Fundamentals</li>
+          <li>Startup India Learning Program</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -278,7 +411,7 @@ footer p{font-size:13px;color:var(--tl)}
     <div class="r">
       <p class="s-label">Contact</p>
       <h2 class="s-title" style="margin-bottom:20px">Let's connect</h2>
-      <div class="contact-left"><p>Whether you need a community leader, growth strategist, or someone to scale your Web3 ecosystem — I'd love to hear from you.</p></div>
+      <div class="contact-left"><p>Looking to scale a Web3 ecosystem, launch a flagship event, or activate a global community? I help founders, foundations, and protocols turn audiences into engaged contributors. Let's talk.</p></div>
       <ul class="contact-list">
         <li><a href="mailto:connect@jitendranaik.me"><span class="ci">&#9993;</span>connect@jitendranaik.me</a></li>
         <li><a href="tel:+917978960633"><span class="ci">&#9742;</span>+91 7978 960 633</a></li>
